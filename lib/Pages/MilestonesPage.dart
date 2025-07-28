@@ -43,7 +43,7 @@ class _MilestonesPageState extends State<MilestonesPage> {
     final bool has3Locations = allLocations.length >= 3;
     final bool has5Locations = allLocations.length >= 5;
 
-    final List<bool> badgeChecks = [
+    final List<bool> trophiesChecks = [
       has10Entries,
       has25Entries,
       has50Entries,
@@ -52,12 +52,12 @@ class _MilestonesPageState extends State<MilestonesPage> {
       has5Locations,
     ];
 
-    final int totalBadges = badgeChecks.where((b) => b).length;
+    final int totalTrophies = trophiesChecks.where((b) => b).length;
 
     return Scaffold(
       backgroundColor: const Color(0xFFF4F9FF),
       appBar: AppBar(
-        title: const Text("Milestones & Badges"),
+        title: const Text("Milestones & Trophies"),
         foregroundColor: Colors.white,
         flexibleSpace: Container(
           decoration: const BoxDecoration(
@@ -78,8 +78,8 @@ class _MilestonesPageState extends State<MilestonesPage> {
               _summaryCard(
                 icon: Icons.emoji_events,
                 label: "Total Achievements",
-                value: "$totalBadges",
-                subtitle: "Badges earned all-time",
+                value: "$totalTrophies",
+                subtitle: "Trophies collected",
                 gradientColors: const [Color(0xFF4DA0FF), Color(0xFF76C5FF)],
               ),
               const SizedBox(height: 24),
@@ -92,32 +92,32 @@ class _MilestonesPageState extends State<MilestonesPage> {
                 ),
               ),
               const SizedBox(height: 20),
-              _badgeTile(
+              _trophieTile(
                 label: "Logged 10 Entries",
                 achieved: has10Entries,
                 description: "${allEntries.length}/10 entries",
               ),
-              _badgeTile(
+              _trophieTile(
                 label: "Logged 25 Entries",
                 achieved: has25Entries,
                 description: "${allEntries.length}/25 entries",
               ),
-              _badgeTile(
+              _trophieTile(
                 label: "Logged 50 Entries",
                 achieved: has50Entries,
                 description: "${allEntries.length}/50 entries",
               ),
-              _badgeTile(
+              _trophieTile(
                 label: "Uploaded 5+ Photos",
                 achieved: hasUploadedPhotos,
                 description: "$photosUploaded/5 photos",
               ),
-              _badgeTile(
+              _trophieTile(
                 label: "Swam in 3 Locations",
                 achieved: has3Locations,
                 description: "${allLocations.length}/3 locations",
               ),
-              _badgeTile(
+              _trophieTile(
                 label: "Swam in 5 Locations",
                 achieved: has5Locations,
                 description: "${allLocations.length}/5 locations",
@@ -160,7 +160,7 @@ class _MilestonesPageState extends State<MilestonesPage> {
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.book), label: 'Journal'),
           BottomNavigationBarItem(icon: Icon(Icons.bar_chart), label: 'Summary'),
-          BottomNavigationBarItem(icon: Icon(Icons.emoji_events), label: 'Badges'),
+          BottomNavigationBarItem(icon: Icon(Icons.emoji_events), label: 'Trophies'),
         ],
       ),
     );
@@ -236,7 +236,7 @@ class _MilestonesPageState extends State<MilestonesPage> {
     );
   }
 
-  Widget _badgeTile({
+  Widget _trophieTile({
     required String label,
     required bool achieved,
     required String description,

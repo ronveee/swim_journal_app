@@ -83,7 +83,7 @@ class _MonthlySummaryPageState extends State<MonthlySummaryPage> {
             const SizedBox(height: 24),
             _summaryCard(
               icon: Icons.place,
-              title: "Favorite Pool",
+              title: "Top Destination",
               value: favoritePool,
               subtitle: "Most visited location this month",
               gradientColors: const [Color(0xFFE0F7FA), Color(0xFFB2EBF2)],
